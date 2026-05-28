@@ -33,19 +33,21 @@ export default function ProductGrid({ products = null, onAddToCart }) {
   };
 
   return (
-    <section className="py-16">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Filters */}
-        <Filters onFilterChange={handleFilterChange} />
+        <div className="mb-12 pb-8 border-b border-gray-200">
+          <Filters onFilterChange={handleFilterChange} />
+        </div>
 
         {/* Product Count */}
-        <p className="text-sm text-text mb-6">
+        <p className="text-xs text-text/60 uppercase tracking-wide mb-8">
           Mostrando {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
         </p>
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -55,13 +57,13 @@ export default function ProductGrid({ products = null, onAddToCart }) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-text mb-4">
+          <div className="text-center py-16">
+            <p className="text-text mb-6">
               No hay productos que coincidan con tus filtros.
             </p>
             <button
               onClick={() => setFilters({ category: '', skinTypes: [] })}
-              className="text-sage hover:underline font-medium"
+              className="text-dark hover:text-dark/70 font-semibold transition-colors text-sm"
             >
               Limpiar filtros
             </button>
