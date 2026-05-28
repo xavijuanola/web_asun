@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { PRODUCTS } from '../data/products';
+import { PRODUCT_CATEGORIES } from '../data/categories';
 import ProductCard from './ProductCard';
 import Filters from './Filters';
 
@@ -28,6 +29,15 @@ export default function ProductGrid({ products = null, onAddToCart }) {
     return result;
   }, [displayProducts, filters]);
 
+  // Group filtered products by category
+  const groupedProducts = useMemo(() => {
+    const grouped = {};
+    PRODUCT_CATEGORIES.forEach((cat) => {
+      grouped[cat.id] = filteredProducts.filter((p) => p.category === cat.id);
+    });
+    return grouped;
+  }, [filteredProducts]);
+
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
   };
@@ -38,21 +48,39 @@ export default function ProductGrid({ products = null, onAddToCart }) {
         {/* Filters */}
         <Filters onFilterChange={handleFilterChange} />
 
-        {/* Product Count */}
-        <p className="text-sm text-text mb-6">
-          Mostrando {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
-        </p>
-
-        {/* Products Grid */}
+        {/* Products by Category */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onAddToCart={onAddToCart}
-              />
-            ))}
+          <div className="space-y-16">
+            {PRODUCT_CATEGORIES.map((category) => {
+              const categoryProducts = groupedProducts[category.id];
+              if (categoryProducts.length === 0) return null;
+
+              return (
+                <div key={category.id}>
+                  {/* Category Header */}
+                  <div className="mb-8">
+                    <h3 className="text-3xl font-display text-dark mb-2">
+                      <span className="mr-3">{category.icon}</span>
+                      {category.name}
+                    </h3>
+                    <p className="text-text max-w-3xl leading-relaxed">
+                      {category.description}
+                    </p>
+                  </div>
+
+                  {/* Category Products Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {categoryProducts.map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        onAddToCart={onAddToCart}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         ) : (
           <div className="text-center py-12">
