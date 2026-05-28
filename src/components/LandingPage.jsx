@@ -24,6 +24,36 @@ export default function LandingPage() {
       url: '/web_asun/dior/',
       color: 'bg-amber-900',
     },
+    {
+      name: 'Allbirds',
+      description: 'Minimal, nature-forward. Square edges, clean typography, no borders',
+      url: '/web_asun/allbirds/',
+      color: 'bg-yellow-700',
+    },
+    {
+      name: 'Lush',
+      description: 'Bold black with vivid neon pops. Playful, dynamic, fearless',
+      url: '/web_asun/lush/',
+      color: 'bg-black',
+    },
+    {
+      name: 'Away',
+      description: 'Editorial luxury. Massive typography, full-viewport imagery, pure white',
+      url: '/web_asun/away/',
+      color: 'bg-gray-800',
+    },
+    {
+      name: 'Bando',
+      description: 'Playful, colorful gradients. Retro typography, rounded shapes, fun',
+      url: '/web_asun/bando/',
+      color: 'bg-gradient-to-br from-pink-400 to-purple-600',
+    },
+    {
+      name: 'Rompedor',
+      description: '🚀 El producto te encuentra a ti. 3D, parallax, navegación flotante, sin búsqueda',
+      url: '/web_asun/rompedor/',
+      color: 'bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500',
+    },
   ];
 
   return (
@@ -42,14 +72,15 @@ export default function LandingPage() {
           <h2 className="text-5xl font-display font-bold text-dark mb-4">
             Elige tu experiencia Lyséa
           </h2>
-          <p className="text-lg text-text max-w-2xl mx-auto">
-            Explora cuatro interpretaciones diferentes del universo de belleza coreana.
+          <p className="text-lg text-text max-w-3xl mx-auto">
+            Explora nueve interpretaciones diferentes del universo de belleza coreana.
             Cada versión ofrece una perspectiva única sobre diseño, navegación y experiencia del usuario.
+            Desde lo clásico hasta lo rompedor, encuentra tu estilo.
           </p>
         </div>
 
         {/* Variants Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {variants.map((variant, idx) => (
             <a
               key={idx}
