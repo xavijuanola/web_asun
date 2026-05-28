@@ -4,6 +4,11 @@ export default function DesignSwitcher() {
     { name: 'Thrive', url: '/web_asun/thrive/' },
     { name: 'Glossier', url: '/web_asun/glossier/' },
     { name: 'Dior', url: '/web_asun/dior/' },
+    { name: 'Allbirds', url: '/web_asun/allbirds/' },
+    { name: 'Lush', url: '/web_asun/lush/' },
+    { name: 'Away', url: '/web_asun/away/' },
+    { name: 'Bando', url: '/web_asun/bando/' },
+    { name: 'Rompedor', url: '/web_asun/rompedor/' },
   ];
 
   // Determine current variant from pathname

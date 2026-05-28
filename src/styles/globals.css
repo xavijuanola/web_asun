@@ -277,3 +277,200 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* ============================================
+   VARIANT-SPECIFIC STYLES
+   ============================================ */
+
+/* ALLBIRDS VARIANT */
+.product-card-allbirds {
+  border-radius: 0;
+  border: none;
+  transition: all 0.3s ease-out;
+}
+
+.product-card-allbirds:hover h3 {
+  text-decoration: underline;
+  text-decoration-color: #c8b89a;
+  text-underline-offset: 4px;
+}
+
+:root:has(body[data-variant="allbirds"]) {
+  --color-allbirds-offwhite: #f8f6f0;
+  --color-allbirds-tan: #c8b89a;
+  --color-allbirds-dark: #1a1a1a;
+  --color-allbirds-green: #6b8f71;
+}
+
+/* LUSH VARIANT */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* AWAY VARIANT */
+.product-card-away {
+  border-radius: 0;
+  background: white;
+  transition: box-shadow 0.3s ease;
+}
+
+/* BANDO VARIANT */
+@keyframes colorRotate {
+  0% {
+    background-color: #ff6b6b;
+  }
+  20% {
+    background-color: #ffd93d;
+  }
+  40% {
+    background-color: #6bcb77;
+  }
+  60% {
+    background-color: #c77dff;
+  }
+  100% {
+    background-color: #ff6b6b;
+  }
+}
+
+/* ROMPEDOR VARIANT */
+@keyframes staggerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes scrollProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--scroll-percent, 0);
+  }
+}
+
+.rompedor-scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c77dff, #ff6b6b);
+  width: 0;
+  z-index: 1000;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+/* Floating pill nav for rompedor */
+.rompedor-floating-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.rompedor-floating-nav.expanded {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  width: auto;
+  max-width: 90vw;
+}
+
+/* Color and typography customizations */
+:root {
+  /* Allbirds Colors */
+  --color-allbirds-offwhite: #f8f6f0;
+  --color-allbirds-tan: #c8b89a;
+  --color-allbirds-dark: #1a1a1a;
+  --color-allbirds-green: #6b8f71;
+
+  /* Lush Colors */
+  --color-lush-black: #000;
+  --color-lush-pink: #ff1f8f;
+  --color-lush-green: #39ff14;
+  --color-lush-white: #fff;
+
+  /* Away Colors */
+  --color-away-white: #fff;
+  --color-away-black: #000;
+  --color-away-sage: #a8d5c4;
+
+  /* Bando Colors */
+  --color-bando-coral: #ff6b6b;
+  --color-bando-yellow: #ffd93d;
+  --color-bando-teal: #6bcb77;
+  --color-bando-purple: #c77dff;
+
+  /* Rompedor Colors */
+  --color-rompedor-purple: #c77dff;
+  --color-rompedor-coral: #ff6b6b;
+}
+
+/* Allbirds specific overrides */
+body[data-variant="allbirds"] {
+  background-color: #f8f6f0;
+  color: #1a1a1a;
+}
+
+/* Lush specific overrides */
+body[data-variant="lush"] {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Lush scrollbar */
+body[data-variant="lush"] ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+body[data-variant="lush"] ::-webkit-scrollbar-thumb {
+  background: #ff1f8f;
+}
+
+/* Away specific overrides */
+body[data-variant="away"] {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Bando specific overrides */
+body[data-variant="bando"] {
+  background-color: #fff;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Rompedor specific overrides */
+body[data-variant="rompedor"] {
+  background-color: #fff;
+  color: #1a1a1a;
+}
