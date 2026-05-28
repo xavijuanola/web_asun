@@ -71,8 +71,10 @@ function StoreApp() {
 
       {/* Quiz Modal Overlay */}
       {showQuiz && (
-        <div className="fixed inset-0 bg-black/40 z-40 flex items-center justify-center">
-          <QuizModal onComplete={handleQuizComplete} onClose={() => setShowQuiz(false)} />
+        <div className="fixed inset-0 bg-black/40 z-40 flex items-center justify-center" onClick={() => setShowQuiz(false)}>
+          <div onClick={(e) => e.stopPropagation()}>
+            <QuizModal onComplete={handleQuizComplete} onClose={() => setShowQuiz(false)} />
+          </div>
         </div>
       )}
 

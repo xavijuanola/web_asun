@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { QUIZ_QUESTIONS, getRecommendation } from '../data/quizLogic';
 import { PRODUCTS } from '../data/products';
 
 export default function QuizModal({ onComplete, onClose }) {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState([null, null, null]);
+  const [step, setStep] = useState(() => {
+    const saved = localStorage.getItem('quizStep');
+    return saved ? parseInt(saved) : 0;
+  });
+  const [answers, setAnswers] = useState(() => {
+    const saved = localStorage.getItem('quizAnswers');
+    return saved ? JSON.parse(saved) : [null, null, null];
+  });
   const [result, setResult] = useState(null);
+
+  // Save to localStorage whenever step or answers change
+  useEffect(() => {
+    localStorage.setItem('quizStep', step.toString());
+  }, [step]);
+
+  useEffect(() => {
+    localStorage.setItem('quizAnswers', JSON.stringify(answers));
+  }, [answers]);
 
   const currentQuestion = QUIZ_QUESTIONS[step];
   const progress = ((step + 1) / QUIZ_QUESTIONS.length) * 100;
@@ -29,6 +44,21 @@ export default function QuizModal({ onComplete, onClose }) {
         products: recommendations,
       });
     }
+  };
+
+  const clearQuizState = () => {
+    localStorage.removeItem('quizStep');
+    localStorage.removeItem('quizAnswers');
+  };
+
+  const handleClose = () => {
+    clearQuizState();
+    onClose();
+  };
+
+  const handleComplete = (resultData) => {
+    clearQuizState();
+    onComplete(resultData);
   };
 
   const handleBack = () => {
@@ -89,13 +119,13 @@ export default function QuizModal({ onComplete, onClose }) {
           {/* Action Buttons */}
           <div className="flex gap-4">
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="flex-1 bg-gray-200 text-dark px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors"
             >
               Seguir navegando
             </button>
             <button
-              onClick={() => onComplete(result)}
+              onClick={() => handleComplete(result)}
               className="flex-1 bg-sage text-cream px-6 py-3 rounded-lg font-medium hover:bg-sage/90 transition-colors"
             >
               Comprar rutina
@@ -171,7 +201,7 @@ export default function QuizModal({ onComplete, onClose }) {
 
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-dark"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
