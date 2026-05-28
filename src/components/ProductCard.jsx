@@ -5,9 +5,16 @@ export default function ProductCard({ product, onAddToCart }) {
 
   return (
     <div className="product-card border border-gray-200 rounded-lg overflow-hidden animate-slideUp">
-      {/* Image Placeholder */}
+      {/* Product Image */}
       <div className="bg-gray-200 h-48 flex items-center justify-center overflow-hidden">
-        <span className="text-gray-500 text-sm">Imagen del producto</span>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%23e5e7eb%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%239ca3af%22 font-size=%2216%22%3EImagen no disponible%3C/text%3E%3C/svg%3E'
+          }}
+        />
       </div>
 
       {/* Content */}

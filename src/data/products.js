@@ -7,7 +7,7 @@ export const PRODUCTS = [
     benefit: 'Gentle daily cleanse without disrupting pH balance',
     price: 12,
     skinTypes: ['oily', 'sensitive'],
-    image: '/products/cosrx-cleanser.jpg',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80',
     description: 'Lightweight gel cleanser that removes impurities while maintaining skin barrier integrity.',
   },
   {
@@ -17,7 +17,7 @@ export const PRODUCTS = [
     benefit: 'Luxurious foam with hydrating benefits',
     price: 15,
     skinTypes: ['dry', 'mature'],
-    image: '/products/klairs-cleanser.jpg',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80',
     description: 'Creamy foam cleanser that gently removes makeup and impurities without overdrying.',
   },
   {
@@ -27,7 +27,7 @@ export const PRODUCTS = [
     benefit: 'Deep pore cleansing with natural plum extract',
     price: 14,
     skinTypes: ['oily', 'sensitive'],
-    image: '/products/beauty-joseon-cleanser.jpg',
+    image: 'https://images.unsplash.com/photo-1617897548463-2e06425e0daf?w=400&q=80',
     description: 'Traditional Korean formula with green plum essence for thorough yet gentle cleansing.',
   },
   {
@@ -37,7 +37,7 @@ export const PRODUCTS = [
     benefit: 'Ocean water-based gentle cleanse',
     price: 13,
     skinTypes: ['dry', 'sensitive'],
-    image: '/products/purito-cleanser.jpg',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80&crop=faces',
     description: 'Mild cleanser enriched with deep sea water for hydration and gentle cleansing.',
   },
   {
@@ -47,7 +47,7 @@ export const PRODUCTS = [
     benefit: 'Antioxidant-rich foaming cleanse',
     price: 11,
     skinTypes: ['oily', 'mature'],
-    image: '/products/isntree-cleanser.jpg',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80&crop=faces',
     description: 'Green tea enriched formula that cleanses while providing antioxidant protection.',
   },
 
@@ -59,7 +59,7 @@ export const PRODUCTS = [
     benefit: 'Premium oil cleanse that dissolves all makeup',
     price: 18,
     skinTypes: ['dry', 'sensitive', 'mature'],
-    image: '/products/klairs-oil.jpg',
+    image: 'https://images.unsplash.com/photo-1620206850712-d54ddb41d359?w=400&q=80',
     description: 'Rich black sesame oil blend that melts into skin to dissolve stubborn makeup and impurities.',
   },
   {
@@ -69,7 +69,7 @@ export const PRODUCTS = [
     benefit: 'Lightweight oil with hydrating sea minerals',
     price: 16,
     skinTypes: ['oily', 'sensitive'],
-    image: '/products/purito-oil.jpg',
+    image: 'https://images.unsplash.com/photo-1596400341869-11a5730a9b19?w=400&q=80',
     description: 'Light, fast-absorbing cleansing oil that cleanses without residue.',
   },
   {
@@ -79,7 +79,7 @@ export const PRODUCTS = [
     benefit: 'Soothing oil cleanse with heartleaf extract',
     price: 14,
     skinTypes: ['sensitive', 'mature'],
-    image: '/products/anua-oil.jpg',
+    image: 'https://images.unsplash.com/photo-1620206850712-d54ddb41d359?w=400&q=80&crop=faces',
     description: 'Gentle oil cleanser with heartleaf to calm and cleanse sensitive skin.',
   },
   {
@@ -89,7 +89,7 @@ export const PRODUCTS = [
     benefit: 'Hyaluronic acid-infused oil cleanser',
     price: 15,
     skinTypes: ['dry', 'mature'],
-    image: '/products/torriden-oil.jpg',
+    image: 'https://images.unsplash.com/photo-1596400341869-11a5730a9b19?w=400&q=80&crop=faces',
     description: 'Dual-action cleansing oil with hyaluronic acid for hydration during cleansing.',
   },
   {
@@ -99,7 +99,7 @@ export const PRODUCTS = [
     benefit: 'Sebum-control oil cleanser',
     price: 13,
     skinTypes: ['oily'],
-    image: '/products/aestura-oil.jpg',
+    image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b73?w=400&q=80',
     description: 'Specialized oil cleanser that controls excess sebum while effectively removing makeup.',
   },
 
@@ -111,7 +111,7 @@ export const PRODUCTS = [
     benefit: 'Calming toner with 77% heartleaf extract',
     price: 14,
     skinTypes: ['sensitive', 'oily'],
-    image: '/products/anua-toner.jpg',
+    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80',
     description: 'Lightweight toner with high concentration of heartleaf to soothe irritated skin.',
   },
   {
@@ -121,7 +121,7 @@ export const PRODUCTS = [
     benefit: 'Hydrating watery toner formula',
     price: 12,
     skinTypes: ['oily', 'dry'],
-    image: '/products/cosrx-toner.jpg',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80&crop=entropy',
     description: 'Refreshing watery toner that hydrates without heaviness.',
   },
   {
@@ -131,7 +131,7 @@ export const PRODUCTS = [
     benefit: 'Multi-layer hydration with hyaluronic acid',
     price: 13,
     skinTypes: ['dry', 'sensitive'],
-    image: '/products/isntree-toner.jpg',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80&crop=entropy',
     description: 'Advanced hyaluronic toner with multiple molecular weights for deep hydration.',
   },
   {
@@ -141,7 +141,7 @@ export const PRODUCTS = [
     benefit: 'Ocean-rich hydrating toner',
     price: 12,
     skinTypes: ['dry', 'mature'],
-    image: '/products/purito-toner.jpg',
+    image: 'https://images.unsplash.com/photo-1617897548463-2e06425e0daf?w=400&q=80&crop=entropy',
     description: 'Mineral-rich toner with deep sea water to enhance skin hydration.',
   },
   {
@@ -151,7 +151,7 @@ export const PRODUCTS = [
     benefit: 'Gentle preparation toner with plant extracts',
     price: 15,
     skinTypes: ['sensitive', 'mature'],
-    image: '/products/klairs-toner.jpg',
+    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80&crop=entropy',
     description: 'Unscented, gentle toner designed to prepare skin for better absorption of treatments.',
   },
 
@@ -163,7 +163,7 @@ export const PRODUCTS = [
     benefit: 'Anti-aging with gentle retinol formula',
     price: 22,
     skinTypes: ['mature', 'oily'],
-    image: '/products/cosrx-retinol.jpg',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80&crop=faces',
     description: 'Stabilized retinol serum for anti-aging benefits with minimal irritation.',
   },
   {
@@ -173,7 +173,7 @@ export const PRODUCTS = [
     benefit: 'Concentrated soothing serum for sensitive skin',
     price: 18,
     skinTypes: ['sensitive', 'oily'],
-    image: '/products/anua-ampoule.jpg',
+    image: 'https://images.unsplash.com/photo-1620206850712-d54ddb41d359?w=400&q=80&crop=entropy',
     description: 'Highly concentrated heartleaf ampoule for maximum soothing benefits.',
   },
   {
@@ -183,7 +183,7 @@ export const PRODUCTS = [
     benefit: 'Brightening serum for uneven tone',
     price: 16,
     skinTypes: ['oily', 'mature'],
-    image: '/products/isntree-azelaic.jpg',
+    image: 'https://images.unsplash.com/photo-1596400341869-11a5730a9b19?w=400&q=80&crop=entropy',
     description: 'Multitasking serum with azelaic acid for brightening and smoothing.',
   },
   {
@@ -193,7 +193,7 @@ export const PRODUCTS = [
     benefit: 'Hydrating serum with ocean minerals',
     price: 17,
     skinTypes: ['dry', 'sensitive'],
-    image: '/products/purito-serum.jpg',
+    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80&crop=faces',
     description: 'Lightweight serum packed with marine minerals for deep hydration.',
   },
   {
@@ -203,7 +203,7 @@ export const PRODUCTS = [
     benefit: 'Multi-benefit serum with peptides',
     price: 20,
     skinTypes: ['mature', 'dry'],
-    image: '/products/torriden-serum.jpg',
+    image: 'https://images.unsplash.com/photo-1617897548463-2e06425e0daf?w=400&q=80&crop=faces',
     description: 'Advanced serum with peptides and botanical extracts for lifting and firming.',
   },
 
@@ -215,7 +215,7 @@ export const PRODUCTS = [
     benefit: 'Rich moisturizing cream with soothing benefits',
     price: 19,
     skinTypes: ['dry', 'sensitive', 'mature'],
-    image: '/products/klairs-cream.jpg',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80&crop=faces',
     description: 'Luxurious cream that soothes and intensely moisturizes without heaviness.',
   },
   {
@@ -225,7 +225,7 @@ export const PRODUCTS = [
     benefit: 'Light hydrating cream with watery texture',
     price: 16,
     skinTypes: ['oily', 'dry'],
-    image: '/products/cosrx-cream.jpg',
+    image: 'https://images.unsplash.com/photo-1620206850712-d54ddb41d359?w=400&q=80&crop=faces',
     description: 'Lightweight moisturizing cream that hydrates without clogging pores.',
   },
   {
@@ -235,7 +235,7 @@ export const PRODUCTS = [
     benefit: 'Multi-layer moisturizing cream',
     price: 18,
     skinTypes: ['dry', 'mature'],
-    image: '/products/isntree-cream.jpg',
+    image: 'https://images.unsplash.com/photo-1596400341869-11a5730a9b19?w=400&q=80&crop=faces',
     description: 'Rich cream with multiple hyaluronic acid layers for intense moisture barrier repair.',
   },
   {
@@ -245,7 +245,7 @@ export const PRODUCTS = [
     benefit: 'Heritage-inspired anti-aging cream',
     price: 21,
     skinTypes: ['mature', 'dry'],
-    image: '/products/beauty-joseon-cream.jpg',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80&crop=entropy',
     description: 'Traditional Korean formula with ginseng for anti-aging and nourishment.',
   },
   {
@@ -255,7 +255,7 @@ export const PRODUCTS = [
     benefit: 'Ocean mineral-rich moisturizing cream',
     price: 17,
     skinTypes: ['sensitive', 'dry'],
-    image: '/products/purito-cream.jpg',
+    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80&crop=faces',
     description: 'Nourishing cream enriched with deep sea water minerals and plant extracts.',
   },
 
@@ -267,7 +267,7 @@ export const PRODUCTS = [
     benefit: 'Soothing sunscreen with aloe vera',
     price: 14,
     skinTypes: ['sensitive', 'oily'],
-    image: '/products/cosrx-spf.jpg',
+    image: 'https://images.unsplash.com/photo-1520315884960-9f3f8e1de9c8?w=400&q=80',
     description: 'Lightweight sunscreen with aloe that soothes while protecting from UV rays.',
   },
   {
@@ -277,7 +277,7 @@ export const PRODUCTS = [
     benefit: 'Lightweight daily sunscreen',
     price: 13,
     skinTypes: ['oily', 'dry'],
-    image: '/products/purito-spf.jpg',
+    image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b73?w=400&q=80',
     description: 'Invisible sunscreen that provides broad-spectrum protection without white cast.',
   },
   {
@@ -287,7 +287,7 @@ export const PRODUCTS = [
     benefit: 'Calming sunscreen for sensitive skin',
     price: 15,
     skinTypes: ['sensitive', 'mature'],
-    image: '/products/beauty-joseon-spf.jpg',
+    image: 'https://images.unsplash.com/photo-1520315884960-9f3f8e1de9c8?w=400&q=80&crop=entropy',
     description: 'Gentle mineral sunscreen with heritage Korean botanicals for sensitive skin.',
   },
   {
@@ -297,7 +297,7 @@ export const PRODUCTS = [
     benefit: 'Hydrating sunscreen serum',
     price: 16,
     skinTypes: ['dry', 'mature'],
-    image: '/products/isntree-spf.jpg',
+    image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd64b73?w=400&q=80&crop=entropy',
     description: 'Hybrid sunscreen serum that protects while providing hydration benefits.',
   },
   {
@@ -307,7 +307,7 @@ export const PRODUCTS = [
     benefit: 'Oil-control sunscreen for oily skin',
     price: 14,
     skinTypes: ['oily'],
-    image: '/products/aestura-spf.jpg',
+    image: 'https://images.unsplash.com/photo-1520315884960-9f3f8e1de9c8?w=400&q=80&crop=faces',
     description: 'Specialized sunscreen that controls sebum while protecting from sun damage.',
   },
 ];
