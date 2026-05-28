@@ -33,35 +33,42 @@ export default function ProductGrid({ products = null, onAddToCart }) {
   };
 
   return (
-    <section className="py-16">
+    <section className="py-20 bg-cream">
       <div className="max-w-7xl mx-auto px-4">
         {/* Filters */}
-        <Filters onFilterChange={handleFilterChange} />
+        <div className="mb-12 pb-8 border-b-2 border-dark/10">
+          <Filters onFilterChange={handleFilterChange} />
+        </div>
 
         {/* Product Count */}
-        <p className="text-sm text-text mb-6">
-          Mostrando {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
+        <p className="text-xs text-text/60 uppercase tracking-widest mb-12 font-semibold">
+          Catálogo de belleza • {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
         </p>
 
-        {/* Products Grid */}
+        {/* Products Grid with Featured Layout */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-max masonry-grid">
+            {filteredProducts.map((product, idx) => (
+              <div
                 key={product.id}
-                product={product}
-                onAddToCart={onAddToCart}
-              />
+                className={`masonry-item ${[4, 6].includes(idx) ? 'masonry-large' : ''}`}
+              >
+                <ProductCard
+                  product={product}
+                  isFeatured={[4, 6].includes(idx)}
+                  onAddToCart={onAddToCart}
+                />
+              </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-text mb-4">
+          <div className="text-center py-16">
+            <p className="text-text mb-6">
               No hay productos que coincidan con tus filtros.
             </p>
             <button
               onClick={() => setFilters({ category: '', skinTypes: [] })}
-              className="text-sage hover:underline font-medium"
+              className="text-dark hover:text-dark/70 font-semibold transition-colors text-sm uppercase tracking-wide"
             >
               Limpiar filtros
             </button>
