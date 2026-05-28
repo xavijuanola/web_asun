@@ -2,6 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/web_asun/bando/',
+  base: '/web_asun/rompedor/',
   plugins: [react()],
 })
