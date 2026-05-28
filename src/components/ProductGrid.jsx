@@ -28,31 +28,44 @@ export default function ProductGrid({ products = null, onAddToCart }) {
     return result;
   }, [displayProducts, filters]);
 
+  // Determine which products are featured (5th and 7th)
+  const isFeatured = (index) => {
+    return index === 4 || index === 6; // 0-based indexing
+  };
+
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
   };
 
   return (
-    <section className="py-16">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4">
         {/* Filters */}
         <Filters onFilterChange={handleFilterChange} />
 
         {/* Product Count */}
-        <p className="text-sm text-text mb-6">
+        <p className="text-sm text-text mb-8">
           Mostrando {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
         </p>
 
-        {/* Products Grid */}
+        {/* Products Masonry Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onAddToCart={onAddToCart}
-              />
-            ))}
+          <div className="masonry-grid">
+            {filteredProducts.map((product, index) => {
+              const featured = isFeatured(index);
+              return (
+                <div
+                  key={product.id}
+                  className={`masonry-item ${featured ? 'masonry-large' : ''}`}
+                >
+                  <ProductCard
+                    product={product}
+                    isFeatured={featured}
+                    onAddToCart={onAddToCart}
+                  />
+                </div>
+              );
+            })}
           </div>
         ) : (
           <div className="text-center py-12">

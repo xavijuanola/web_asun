@@ -131,14 +131,93 @@ a:not(.no-hover) {
   transition: color 0.2s ease-in-out;
 }
 
+/* ============================================
+   PRODUCT CARD STYLES & SHADOWS
+   ============================================ */
+
 /* Product card hover effects */
 .product-card {
-  transition: all 0.3s ease-out;
+  transition: all 0.4s ease-out;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background: #f5f5f0;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.featured-card {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.featured-card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================================
+   MASONRY GRID LAYOUT
+   ============================================ */
+
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.masonry-item {
+  display: flex;
+}
+
+.masonry-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .masonry-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .masonry-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero-section {
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 1;
 }
 
 /* ============================================
