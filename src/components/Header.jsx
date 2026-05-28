@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { PRODUCTS } from '../data/products';
+import DesignSwitcher from './DesignSwitcher';
 
 export default function Header({ onQuizClick, onCartClick, cart }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,6 +35,9 @@ export default function Header({ onQuizClick, onCartClick, cart }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-30 bg-cream border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-end border-b border-gray-100">
+        <DesignSwitcher />
+      </div>
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
