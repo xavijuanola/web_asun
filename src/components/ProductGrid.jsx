@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { PRODUCTS } from '../data/products';
+import { PRODUCT_CATEGORIES } from '../data/categories';
 import ProductCard from './ProductCard';
 import Filters from './Filters';
 
@@ -28,47 +29,67 @@ export default function ProductGrid({ products = null, onAddToCart }) {
     return result;
   }, [displayProducts, filters]);
 
+  // Group filtered products by category
+  const groupedProducts = useMemo(() => {
+    const grouped = {};
+    PRODUCT_CATEGORIES.forEach((cat) => {
+      grouped[cat.id] = filteredProducts.filter((p) => p.category === cat.id);
+    });
+    return grouped;
+  }, [filteredProducts]);
+
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
   };
 
   return (
-    <section className="py-20 bg-cream">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-4">
         {/* Filters */}
-        <div className="mb-12 pb-8 border-b-2 border-dark/10">
-          <Filters onFilterChange={handleFilterChange} />
-        </div>
+        <Filters onFilterChange={handleFilterChange} />
 
-        {/* Product Count */}
-        <p className="text-xs text-text/60 uppercase tracking-widest mb-12 font-semibold">
-          Catálogo de belleza • {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''}
-        </p>
-
-        {/* Products Grid with Featured Layout */}
+        {/* Products by Category */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-max masonry-grid">
-            {filteredProducts.map((product, idx) => (
-              <div
-                key={product.id}
-                className={`masonry-item ${[4, 6].includes(idx) ? 'masonry-large' : ''}`}
-              >
-                <ProductCard
-                  product={product}
-                  isFeatured={[4, 6].includes(idx)}
-                  onAddToCart={onAddToCart}
-                />
-              </div>
-            ))}
+          <div className="space-y-16">
+            {PRODUCT_CATEGORIES.map((category) => {
+              const categoryProducts = groupedProducts[category.id];
+              if (categoryProducts.length === 0) return null;
+
+              return (
+                <div key={category.id}>
+                  {/* Category Header */}
+                  <div className="mb-8">
+                    <h3 className="text-3xl font-display text-dark mb-2">
+                      <span className="mr-3">{category.icon}</span>
+                      {category.name}
+                    </h3>
+                    <p className="text-text max-w-3xl leading-relaxed">
+                      {category.description}
+                    </p>
+                  </div>
+
+                  {/* Category Products Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {categoryProducts.map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        onAddToCart={onAddToCart}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         ) : (
-          <div className="text-center py-16">
-            <p className="text-text mb-6">
+          <div className="text-center py-12">
+            <p className="text-text mb-4">
               No hay productos que coincidan con tus filtros.
             </p>
             <button
               onClick={() => setFilters({ category: '', skinTypes: [] })}
-              className="text-dark hover:text-dark/70 font-semibold transition-colors text-sm uppercase tracking-wide"
+              className="text-sage hover:underline font-medium"
             >
               Limpiar filtros
             </button>
